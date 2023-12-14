@@ -1,0 +1,48 @@
+<!-- adminDashboard.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Admin Dashboard - Applications</h2>
+
+        <!-- Bootstrap Table -->
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>School</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% applications.forEach(application => { %>
+                    <tr>
+                        <td><%= application.user.name %></td>
+                        <td><%= application.user.email %></td>
+
+                        <td><%= application.school %></td>
+                        <td><%= application.status %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Link Bootstrap JS and Popper.js (if needed) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+    

@@ -1,0 +1,65 @@
+<!-- applicationForm.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <!-- Link Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">Application Form</h2>
+
+        <form method="post" action="/submit-application">
+
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="name">Full Name:</label>
+                <input type="text" class="form-control" id="name" name="name" value="<%= user.name %>" required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= user.email %>" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" value="<%= user.phone %>" required>
+            </div>
+
+            <!-- Select School -->
+            <div class="form-group">
+                <label for="school">Select School:</label>
+                <select class="form-control" id="school" name="school" required>
+                    <option value="Smithtown High School">Smithtown High School</option>
+                    <option value="Maplewood Academy">Maplewood Academy</option>
+                    <option value="Riverside Junior High">Riverside Junior High</option>
+                    <option value="Greenwood Elementary School">Greenwood Elementary School</option>
+                    <option value="Pineview Middle School">Pineview Middle School</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+
+         
+            <div class="form-group">
+                <label for="grade">Current Grade:</label>
+                <input type="number" class="form-control" id="grade" name="grade" value="<%= user.grade %>" required>
+            </div> 
+
+            <button type="submit" class="btn btn-primary">Submit Application</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>

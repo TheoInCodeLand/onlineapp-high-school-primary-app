@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG IN</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+    body{
+         display: flex;
+         justify-content:center;
+          align-items: center;
+          min-height: 100vh;
+          background: url("/images/backg.jpg") no-repeat;
+          background-size: cover;
+          background-position: center;
+
+    }
+    .wrepper{
+width: 450px;
+background:transparent;
+border: 2px solid rgba(225, 225,225, .2);
+backdrop-filter: blur(20px);
+box-shadow: 0 0 10px rgba(0, 0,0, .2);
+color: aliceblue;
+border-radius: 10px;
+padding: 30px 40px;
+
+}
+.wrepper h1{
+
+    font-size: 36px;
+    text-align: center;
+}
+.wrepper .inputbox{
+    position: relative;
+width: 100%;
+height: 50px;
+
+margin: 30px 0px;
+
+
+}
+.inputbox input{
+width: 100%;
+height: 100%;
+background: transparent;
+border: none;
+outline: none;
+border: 2px solid rgb(225, 225, 225, .2);
+border-radius: 40px;
+font-size: 16px;
+color: aliceblue;
+padding: 20px 45px 20px 20px;
+}
+.inputbox input::placeholder{
+color: aliceblue;
+
+}
+.inputbox i{
+position: absolute;
+right: 20px;
+top: 50px;
+transform: translateY(-150%);
+font-size: 20px;
+}
+.wrepper .forgot{
+display: flex;
+font-size: 14.5px;
+margin: -14px 0 15px;
+
+}
+.forgot a{
+color: aliceblue;
+text-decoration: none;
+}
+.forgot a:hover{
+text-decoration: underline;
+
+}
+
+.wrepper .sbtn{
+   width: 100%;
+   height: 30px;
+   background:#fff ;
+   border: none;
+   outline: none;
+   border-radius: 40px;
+   box-shadow: 0 0 10px rgba(0, 0,0, .1);
+   cursor: pointer;
+   font-size: 16px;
+   color: #333;
+   font-weight: 600;
+
+
+}
+.wrepper .gbtn{
+   color:#333;
+padding: 2px 10px;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+text-decoration: none;
+background-color: #fff;
+font-weight: 600;
+font-size: 16px;
+cursor: pointer;
+border-radius: 40px;
+outline: none;
+}
+.wrepper .sign{
+ font-size: 14.5px;
+text-align: center;
+margin: 20px 0 15px;
+
+
+}
+.sign p a{
+ color: #fff;
+ text-decoration: none;
+ font-weight: 600;
+
+
+}
+.sign p a:hover{
+text-decoration: underline;
+
+}
+    </style>
+</head>
+<body>
+    
+   
+    <form method="post" action="/signin">
+        
+    <div class="wrepper">
+        
+     <h1>Login</h1>
+     <br>
+     <% if (locals.error) { %>
+        <p style="color: red;text-align: center;"><%= locals.error %></p>
+    <% } %>
+     <p>
+    </p>
+     <div class="inputbox">
+        <input type="text" id="email" name="email" placeholder="username" required>
+
+
+            <i class='bx bxs-user'></i>
+    </div>
+    <div class="inputbox"> 
+          <input type="password" id="password" name="password" placeholder="password" required>
+          <i class='bx bx-lock'></i>
+ </div>
+ <div class="forgot">
+    <a href="/forgot-password">forgot password?</a>
+ </div>
+ <button type="submit" class="sbtn" >Log in</button>
+ 
+<div class="sign">
+    <p>Don't have an account? <a href="/signup">register</a></p>
+
+
+
+</div>
+<a href="guest.html" class="gbtn">Guest</a>
+
+    </div>
+    </form>
+</body>
+
+
+</html>

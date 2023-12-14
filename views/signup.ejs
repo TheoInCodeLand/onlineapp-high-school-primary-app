@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url("/images/backg.jpg") no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrapper {
+            width: 450px;
+            background: transparent;
+            border: 2px solid rgba(225, 225, 225, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            color: aliceblue;
+            border-radius: 10px;
+            padding: 30px 40px;
+        }
+
+        .wrapper h1 {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .wrapper .inputbox {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            margin: 30px 0px;
+        }
+
+        .inputbox input {
+            width: 80%;
+            height: 50%;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgb(225, 225, 225, .2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: aliceblue;
+            padding: 20px 45px 20px 20px;
+        }
+
+        .inputbox input::placeholder {
+            color: aliceblue;
+        }
+
+        .wrapper .already {
+            display: flex;
+            font-size: 14.5px;
+            margin: -14px 0 15px;
+        }
+
+        .already a {
+            color: aliceblue;
+            text-decoration: none;
+        }
+
+        .already a:hover {
+            text-decoration: underline;
+        }
+
+        .wrapper .sbtn {
+            width: 100%;
+            height: 30px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+            cursor: pointer;
+            font-size: 16px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .wrapper .already {
+            font-size: 14.5px;
+            text-align: center;
+            margin: 20px 0 15px;
+        }
+
+        .already p a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .already p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="/signup">
+        <div class="wrapper">
+            <h1>Sign up</h1>
+            <% if (locals.error) { %>
+                <p style="color: red;text-align: center;"><%= locals.error %></p>
+            <% } %>
+            <div class="inputbox">
+                <input type="text" id="name" name="name" placeholder="Name" required >
+            </div>
+            <div class="inputbox">
+                <input type="number" id="id" name="id" placeholder="ID number" required >
+            </div>
+            <div class="inputbox"> 
+                <input type="email" id="email" name="email" placeholder="email address" required>
+            </div>
+            <div class="inputbox"> 
+                <input type="password" id="pass1" name="pass1" placeholder="password" required>
+            </div>
+            <div class="inputbox"> 
+                <input type="password" id="pass2" name="pass2" placeholder="confirm password" required>
+            </div>
+
+            <button type="submit" id="signup" name="signup" class="sbtn">Continue</button>
+
+            <div class="already">  
+                <p>Already have an account? <a href="login.html">sign in</a></p>
+            </div>
+        </div>
+    </form>
+</body>
+<script>
+    const signupButton = document.getElementById('signup');
+    signupButton.addEventListener('click', (e) => {
+        // Check if passwords match
+        const pass1 = document.getElementById('pass1').value;
+        const pass2 = document.getElementById('pass2').value;
+
+        if (pass1 !== pass2) {
+            alert('Passwords do not match');
+            e.preventDefault(); // Prevent form submission
+        }
+    });
+</script>
+</html>
